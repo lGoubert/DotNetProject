@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:LedBadgeProject"
         mc:Ignorable="d"
         Title="Badge Manager" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Label Content="Welcome to BadgeManager ! Please, connect to the LED Badge." HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="MacEntry" Text="Right the mac adress" Margin="5" Width="120" HorizontalContentAlignment="Center" GotFocus="RemovePlaceHolder"/>
+        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="OnConnectionButtonClicked" Height="25" Width="100" Content="Connection"/>
+    </StackPanel>
 </Window>

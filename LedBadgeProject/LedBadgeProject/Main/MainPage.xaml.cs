@@ -36,6 +36,7 @@ namespace LedBadgeProject.Main
         private void OnSendClicked(object sender, RoutedEventArgs e)
         {
             SendMessageToModel();
+            MessageToSendEntry.Focus();
         }
 
         private void EntryTapped(object sender, KeyEventArgs e)

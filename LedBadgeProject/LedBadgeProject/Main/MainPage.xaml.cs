@@ -32,5 +32,17 @@ namespace LedBadgeProject.Main
         {
             MessageToSendEntry.Text = (sender as ListBox).SelectedItem.ToString();
         }
+
+        private void OnSendClicked(object sender, RoutedEventArgs e)
+        {
+            if (Model.SendMessage(MessageToSendEntry.Text))
+            {
+                MessageBox.Show("Message sended");
+            }
+            else
+            {
+                MessageBox.Show("An error occured");
+            }
+        }
     }
 }

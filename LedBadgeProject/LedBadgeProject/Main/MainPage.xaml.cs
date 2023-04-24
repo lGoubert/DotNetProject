@@ -70,5 +70,10 @@ namespace LedBadgeProject.Main
         {
             Model.ClearMessageToSend();
         }
+
+        private void DoubleClicked(object sender, MouseButtonEventArgs e)
+        {
+            SendMessageToModel();
+        }
     }
 }

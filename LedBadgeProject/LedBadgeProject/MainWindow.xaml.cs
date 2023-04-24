@@ -2,6 +2,7 @@
 using LedBadgeProject.Models;
 using System.Net.Mail;
 using System.Windows;
+using System.Windows.Navigation;
 
 namespace LedBadgeProject
 {
@@ -24,7 +25,9 @@ namespace LedBadgeProject
             if (connection.ConnectToLedBadge(macAddress))
             {
                 MessageBox.Show("Connected to Led Badge");
-                this.Content = new MainPage(macAddress);
+                MainPage mainPage = new MainPage(macAddress);
+                mainPage.Show();
+                Close();
             }
             else
             {

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +18,7 @@ namespace LedBadgeProject.Main
     /// <summary>
     /// Logique d'interaction pour MainPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class MainPage : Window
     {
         internal MainModel Model { get; set; }
         public MainPage(string macAddress)
@@ -76,8 +76,12 @@ namespace LedBadgeProject.Main
         {
             SendMessageToModel();
         }
+
         private void DisconnectClicked(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
         }
     }
 }

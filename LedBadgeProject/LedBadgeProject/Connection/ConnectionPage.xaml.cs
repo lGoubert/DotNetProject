@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LedBadgeProject.MainPage
+namespace LedBadgeProject.Connection
 {
     /// <summary>
-    /// Logique d'interaction pour MainPage.xaml
+    /// Logique d'interaction pour ConnectionPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class ConnectionPage : Page
     {
-        public MainPage()
+        public ConnectionPage()
         {
             InitializeComponent();
         }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LedBadgeProject.MainPage
+namespace LedBadgeProject.Connection
 {
-    internal class MainViewModel
+    internal class ConnectionViewModel
     {
     }
 }

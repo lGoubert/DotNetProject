@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LedBadgeProject.MainPage
+namespace LedBadgeProject.Main
 {
     internal class MainModel
     {

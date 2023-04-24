@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LedBadgeProject.Main;
+using LedBadgeProject.Models;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LedBadgeProject
 {
@@ -23,6 +12,29 @@ namespace LedBadgeProject
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void OnConnectionButtonClicked(object sender, RoutedEventArgs e)
+        {
+            Connection connection = new Connection();
+            string macAddress = connection.GetMacAddress(MacEntry.Text);
+            if (connection.ConnectToLedBadge(macAddress))
+            {
+                MessageBox.Show("Connected to Led Badge");
+                this.Content = new MainPage(macAddress);
+            }
+            else
+            {
+                MessageBox.Show("An error occured");
+            }
+        }
+
+        private void RemovePlaceHolder(object sender, RoutedEventArgs e)
+        {
+            if (MacEntry.Text == "Right the mac adress")
+            {
+                MacEntry.Text = "";
+            }
         }
     }
 }

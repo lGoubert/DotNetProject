@@ -20,9 +20,17 @@ namespace LedBadgeProject.Main
     /// </summary>
     public partial class MainPage : Page
     {
-        public MainPage()
+        internal MainModel Model { get; set; }
+        public MainPage(string macAddress)
         {
             InitializeComponent();
+            Model = new MainModel(macAddress);
+            DataContext = Model;
+        }
+
+        private void OnItemClicked(object sender, SelectionChangedEventArgs e)
+        {
+            MessageToSendEntry.Text = (sender as ListBox).SelectedItem.ToString();
         }
     }
 }

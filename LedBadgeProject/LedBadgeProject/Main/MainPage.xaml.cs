@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -75,6 +75,9 @@ namespace LedBadgeProject.Main
         private void DoubleClicked(object sender, MouseButtonEventArgs e)
         {
             SendMessageToModel();
+        }
+        private void DisconnectClicked(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

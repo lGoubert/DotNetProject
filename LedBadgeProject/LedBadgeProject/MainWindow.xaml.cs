@@ -1,5 +1,6 @@
 ﻿using LedBadgeProject.Main;
 using LedBadgeProject.Models;
+using System.Net.Mail;
 using System.Windows;
 
 namespace LedBadgeProject
@@ -9,15 +10,17 @@ namespace LedBadgeProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        internal Connection connection { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            connection = new Connection();
+            DataContext = connection;
         }
 
         private void OnConnectionButtonClicked(object sender, RoutedEventArgs e)
         {
-            Connection connection = new Connection();
-            string macAddress = connection.GetMacAddress(MacEntry.Text);
+            string macAddress = connection.GetMacAddress();
             if (connection.ConnectToLedBadge(macAddress))
             {
                 MessageBox.Show("Connected to Led Badge");
@@ -31,9 +34,9 @@ namespace LedBadgeProject
 
         private void RemovePlaceHolder(object sender, RoutedEventArgs e)
         {
-            if (MacEntry.Text == "Right the mac adress")
+            if (connection.macAddress == "Right the mac adress")
             {
-                MacEntry.Text = "";
+                connection.ClearMacAddress();
             }
         }
     }

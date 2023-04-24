@@ -30,19 +30,45 @@ namespace LedBadgeProject.Main
 
         private void OnItemClicked(object sender, SelectionChangedEventArgs e)
         {
-            MessageToSendEntry.Text = (sender as ListBox).SelectedItem.ToString();
+            Model.messageToSend = (sender as ListBox).SelectedItem.ToString();
         }
 
         private void OnSendClicked(object sender, RoutedEventArgs e)
         {
-            if (Model.SendMessage(MessageToSendEntry.Text))
+            SendMessageToModel();
+        }
+
+        private void EntryTapped(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
             {
-                MessageBox.Show("Message sended");
+                SendMessageToModel();
+            }
+        }
+
+        private void SendMessageToModel()
+        {
+            if (!string.IsNullOrEmpty(Model.messageToSend))
+            {
+                if (Model.SendMessage())
+                {
+                    MessageBox.Show("Message sended");
+                    Model.ClearMessageToSend();
+                }
+                else
+                {
+                    MessageBox.Show("An error occured");
+                }
             }
             else
             {
-                MessageBox.Show("An error occured");
+                MessageBox.Show("Message to send is empty. Please write a message");
             }
+        }
+
+        private void OnClearClicked(object sender, RoutedEventArgs e)
+        {
+            Model.ClearMessageToSend();
         }
     }
 }
